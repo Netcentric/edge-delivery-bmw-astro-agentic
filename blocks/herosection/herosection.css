@@ -92,7 +92,7 @@ main .herosection-container {
     --heading-font-size: 28px;
     --headline-font-size: 64px;
     --offset-image: 3%;
-    --scale-image: 1.8;
+    --scale-image: 1.4;
 
     display: grid;
     grid-template-columns: 1fr 1.2fr;
