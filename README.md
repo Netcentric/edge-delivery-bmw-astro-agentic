@@ -1,8 +1,8 @@
-# Abbott Astro Agentic - Edge Delivery project for the Adobe 2025 Summit
+# BMW Astro Agentic - Edge Delivery project for the Adobe 2025 Summit
 
 ## Environments
-- Preview: https://main--edge-delivery-abbott-astro-agentic--netcentric.aem.page/
-- Live: https://main--edge-delivery-abbott-astro-agentic--netcentric.aem.live/
+- Preview: https://main--edge-delivery-bmw-astro-agentic--netcentric.aem.page/
+- Live: https://main--edge-delivery-bmw-astro-agentic--netcentric.aem.live/
 
 ## Documentation
 
