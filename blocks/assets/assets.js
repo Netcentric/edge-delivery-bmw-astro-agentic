@@ -1,12 +1,11 @@
 export default function decorate(block) {
-  const rows = block.children;
+  const rows = [...block.children];
 
   const blockContent = document.createElement('div');
   blockContent.classList.add('assets__content');
 
-  for (const row of rows) {
+  rows.forEach((row) => {
     const columns = row.querySelectorAll('div');
-    console.log('assets row columns', row.innerHTML);
     const rowNode = document.createElement('div');
     rowNode.classList.add('assets__row');
 
@@ -39,7 +38,7 @@ export default function decorate(block) {
     rowNode.append(columns[1]);
 
     blockContent.append(rowNode);
-  }
+  });
 
   block.textContent = '';
   block.append(blockContent);

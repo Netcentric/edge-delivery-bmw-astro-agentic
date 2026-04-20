@@ -13,7 +13,7 @@ main .herosection-container > div {
   aspect-ratio: 1366 / 600;
   overflow: hidden;
   color: var(--background-color);
-  font-family: 'BMWTypeNext Pro TT', 'BMW Type Next Pro', 'BMWTypeNext', arial, sans-serif;
+  font-family: 'BMWTypeNext Pro TT', 'BMW Type Next Pro', BMWTypeNext, arial, sans-serif;
 }
 
 .herosection__image,
@@ -109,8 +109,7 @@ main .herosection-container > div {
   }
 
   .herosection__body {
-    inset-inline-start: 1rem;
-    inset-inline-end: 1rem;
+    inset-inline: 1rem;
     inset-block-end: 1rem;
     max-width: none;
   }

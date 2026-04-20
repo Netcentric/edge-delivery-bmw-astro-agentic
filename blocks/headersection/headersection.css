@@ -6,7 +6,7 @@
   align-items: center;
   gap: 20px;
   padding-block: 6px;
-  font-family: 'BMWTypeNext Pro TT', 'BMW Type Next Pro', 'BMWTypeNext', arial, sans-serif;
+  font-family: 'BMWTypeNext Pro TT', 'BMW Type Next Pro', BMWTypeNext, arial, sans-serif;
 }
 
 .headersection__logo {
