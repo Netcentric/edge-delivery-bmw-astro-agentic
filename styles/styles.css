@@ -7,8 +7,8 @@
 :root {
   /* colors */
   --background-color: white;
-  --light-color: #eeeeee;
-  --dark-color: #cccccc;
+  --light-color: #eee;
+  --dark-color: #ccc;
   --text-color: black;
   --midnight-blue-color: #000048;
   --dark-blue: #2F78C4;
@@ -156,7 +156,7 @@ a.button:any-link, button {
   font-style: normal;
   font-weight: 700;
   cursor: pointer;
-  color: #ffffff;
+  color: #fff;
   background-color: #1B69D4;
   white-space: nowrap;
   overflow: hidden;
