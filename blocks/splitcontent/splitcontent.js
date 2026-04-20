@@ -9,7 +9,7 @@ export default function decorate(block) {
   // Get and prepare button if it exists
   const button = buttonEl?.querySelector('a');
   if (button) {
-    button.classList.add('button', 'icon-arrow-right');
+    button.classList.add('button', 'icon-download');
   }
 
   // Add classes if picture is in second position

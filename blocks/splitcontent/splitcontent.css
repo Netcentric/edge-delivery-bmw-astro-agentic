@@ -5,15 +5,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  margin-top: 80px;
+  gap: 100px;
 }
 
 .splitcontent__content {
-    padding: 40px;
+    padding-block: 60px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 32px;
     flex-basis: 50%;
     flex-grow: 1;
 
@@ -24,6 +23,7 @@
     a.button{
         width: min-content;
         margin-inline: 0;
+        
     }
 }
 
