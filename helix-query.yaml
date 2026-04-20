@@ -78,7 +78,7 @@ indices:
         select: head > meta[property="badge"]
         value: attribute(el, "content")
       postalcodes:
-        select: h1 + p *:not(strong)
+        select: "#postal-codes + ul > li"
         values: textContent(el)
       lastModified:
         select: none
