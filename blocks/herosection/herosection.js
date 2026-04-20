@@ -1,20 +1,32 @@
 export default function decorate(block) {
   block.classList.add('fullbleed');
 
-  // Get the inner elements
-  const [logoDiv, contentDiv, buttonDiv] = block.firstElementChild.children;
-  const image = logoDiv.querySelector('picture');
-  const button = buttonDiv.querySelector('a');
-  button?.classList.add('button', 'icon-arrow-right');
+  const row = block.firstElementChild;
+  if (!row) return;
 
-  // Create new structure
+  const [imageCell, contentCell, buttonCell] = row.children;
+  const image = imageCell?.querySelector('picture');
+  const button = buttonCell?.querySelector('a');
+
+  const imageHtml = image ? image.outerHTML : (imageCell?.innerHTML ?? '');
+  const contentHtml = contentCell?.innerHTML ?? '';
+
+  let buttonHtml = '';
+  if (button) {
+    button.className = 'button herosection__cta icon-download';
+    buttonHtml = button.outerHTML;
+  } else if (buttonCell?.textContent?.trim()) {
+    buttonHtml = `<span class="button herosection__cta icon-download">${buttonCell.innerHTML}</span>`;
+  }
+
   const newHtml = `
     <div class="herosection__image">
-      ${image.outerHTML}
+      ${imageHtml}
     </div>
     <div class="herosection__body">
-      ${contentDiv.outerHTML}
-      ${button.outerHTML}
+      ${contentHtml}
+      ${buttonHtml}
+    </div>
   `;
 
   block.innerHTML = newHtml;

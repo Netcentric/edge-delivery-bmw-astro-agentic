@@ -17,9 +17,9 @@
   --link-hover-color: #136ff6;
 
   /* fonts */
-  --body-font-family: "Gellix", "Gellix-fallback";
+  --body-font-family: "BMWTypeNext", "BMWTypeNextProTT", arial, sans-serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Gellix', menlo, consolas, 'Liberation Mono', monospace;
+  --fixed-font-family: '', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -40,13 +40,6 @@
   /* spacings */
   --container-width: 1106px;  /* the max-width */
   --min-padding: 2em;   /* padding on small screen */
-}
-
-@font-face {
-  font-family: Gellix-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
-  src: local('Arial');
 }
 
 @media (width >= 900px) {

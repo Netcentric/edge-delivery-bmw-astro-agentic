@@ -1,64 +1,49 @@
 export default function decorate(block) {
   block.classList.add('fullbleed');
 
-  const [logoRow, menuRow, socialsRow, socialIcons, infoRow] = block.children;
+  const [brandRow, infoRow, socialsRow] = block.children;
+  const brandContent = brandRow?.firstElementChild ?? brandRow;
+  const logo = brandContent?.querySelector('picture');
 
-  // Get logo from first row
-  const logo = logoRow.querySelector('picture');
+  const rawBrandLabel = brandContent
+    ? Array.from(brandContent.childNodes)
+      .filter((node) => node.nodeType === Node.TEXT_NODE)
+      .map((node) => node.textContent?.trim() ?? '')
+      .join(' ')
+      .trim()
+    : '';
+  const brandLabel = rawBrandLabel || (brandContent?.textContent?.trim() ?? '');
 
-  // Get menu items from second row
-  const menuItems = menuRow.querySelectorAll('.button-container a');
-  const menuHtml = Array.from(menuItems).map((item) => `
-    <li class="footersection__menu-item">
-      <a href="${item.getAttribute('href')}" class="footersection__menu-link">${item.textContent}</a>
-    </li>
-  `).join('');
-
-  // Get social links and icons
-  const socialLinks = socialsRow.querySelectorAll('.button-container a');
-  const socialIconDivs = socialIcons.querySelectorAll('div');
-
-  const socialsHtml = Array.from(socialLinks).map((link, index) => {
-    if (!link) return '';
-
-    const icon = socialIconDivs[index]?.querySelector('picture');
-    const linkContent = icon ? icon.outerHTML : link.textContent;
-
-    return `
-      <li class="footersection__social-item">
-        <a href="${link.getAttribute('href')}" class="footersection__social-link">
-          ${linkContent}
-        </a>
-      </li>
-    `;
-  }).join('');
-
-  // Get info paragraphs from fourth row
-  const infoParagraphs = infoRow.querySelectorAll('p');
-  const infoHtml = Array.from(infoParagraphs).map((p) => {
-    // Remove button class from any links
-    p.querySelectorAll('a').forEach((link) => {
+  const infoParagraphs = Array.from(infoRow?.querySelectorAll('p') ?? []);
+  const infoHtml = infoParagraphs.map((paragraph, index) => {
+    const paragraphClone = paragraph.cloneNode(true);
+    paragraphClone.querySelectorAll('a').forEach((link) => {
       link.classList.remove('button');
     });
-    return `<div class="footersection__info-item">${p.outerHTML}</div>`;
+    const isCopyright = /^\s*©/u.test(paragraphClone.textContent ?? '')
+      || index === infoParagraphs.length - 1;
+    const copyClass = isCopyright ? ' class="footersection__copy"' : '';
+    return `<p${copyClass}>${paragraphClone.innerHTML}</p>`;
   }).join('');
 
-  // Create new structure
+  const socialItems = Array.from(socialsRow?.children ?? [])
+    .map((cell) => cell.querySelector('picture'))
+    .filter(Boolean);
+  const socialsHtml = socialItems
+    .map((icon) => `<li class="footersection__social-item">${icon.outerHTML}</li>`)
+    .join('');
+
   const newHtml = `
-    <div class="footersection__logo">
-      ${logo.outerHTML}
+    <div class="footersection__brand">
+      ${logo ? logo.outerHTML : ''}
+      <span class="footersection__brand-label">${brandLabel}</span>
     </div>
-    <nav class="footersection__menu">
-      <ul class="footersection__menu-list">
-        ${menuHtml}
-      </ul>
-    </nav>
-    <ul class="footersection__social-list">
-      ${socialsHtml}
-    </ul>
     <div class="footersection__info">
       ${infoHtml}
     </div>
+    <ul class="footersection__socials">
+      ${socialsHtml}
+    </ul>
   `;
 
   block.innerHTML = newHtml;

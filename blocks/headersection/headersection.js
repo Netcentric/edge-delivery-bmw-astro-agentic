@@ -1,22 +1,30 @@
 export default function decorate(block) {
-  const [logoDiv, titleDiv, buttonDiv] = block.firstElementChild.children;
+  const row = block.firstElementChild;
+  if (!row) return;
 
-  // Get elements
-  const headerLogo = logoDiv.querySelector('picture');
-  const headerTitle = titleDiv.querySelector('h1');
-  const headerButton = buttonDiv.querySelector('a');
-  headerButton.classList.add('headersection__button');
+  const [logoDiv, titleDiv, buttonDiv] = row.children;
+  const headerLogo = logoDiv?.querySelector('picture');
+  const headerTitle = titleDiv?.querySelector('h1');
+  const headerButton = buttonDiv?.querySelector('a');
 
-  // Create new structure
-  const newHtml = `
+  const logoHtml = headerLogo ? headerLogo.outerHTML : (logoDiv?.innerHTML ?? '');
+  const titleHtml = headerTitle ? headerTitle.outerHTML : (titleDiv?.innerHTML ?? '');
+
+  let buttonHtml = '';
+  if (headerButton) {
+    headerButton.classList.add('headersection__button');
+    buttonHtml = headerButton.outerHTML;
+  } else if (buttonDiv && buttonDiv.textContent.trim()) {
+    buttonHtml = `<span class="headersection__button">${buttonDiv.innerHTML}</span>`;
+  }
+
+  block.innerHTML = `
     <div class="headersection__logo">
-      ${headerLogo.innerHTML}
+      ${logoHtml}
     </div>
     <div class="headersection__title">
-      ${headerTitle.innerHTML}
+      ${titleHtml}
     </div>
-    ${headerButton.outerHTML}
+    ${buttonHtml}
   `;
-
-  block.innerHTML = newHtml;
 }

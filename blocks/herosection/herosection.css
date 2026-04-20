@@ -1,144 +1,117 @@
 /* stylelint-disable selector-class-pattern */
-main .herosection-container > div {
-  max-width: unset;
-}
-
 main .herosection-container {
   padding: 0;
 }
 
-.herosection {
-  --bg-threshold: 20%;
-  --heading-font-size: 37px;
-  --headline-font-size: 84px;
-  --offset-image: 3%;
-  --scale-image: 1;
+main .herosection-container > div {
+  max-width: unset;
+}
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr .5fr;
-  background-image: linear-gradient(white, white),
-    url('https://main--edge-delivery-summit25-astro-agentic--netcentric.aem.live/img/space.png');
-  background-size: 100% var(--bg-threshold),
-    cover;
-  background-repeat: no-repeat;
-  background-position: left bottom,
-    center;
+.herosection {
+  position: relative;
+  min-height: 280px;
+  aspect-ratio: 1366 / 600;
+  overflow: hidden;
+  color: var(--background-color);
+  font-family: 'BMWTypeNext Pro TT', 'BMW Type Next Pro', 'BMWTypeNext', arial, sans-serif;
+}
+
+.herosection__image,
+.herosection__image picture,
+.herosection__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .herosection__image {
-  position: relative;
-  place-content: end;
-  grid-column: 1;
-  grid-row: 2;
+  position: absolute;
+  inset: 0;
+}
+
+.herosection__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    252.302deg,
+    rgb(38 38 38 / 0%) 10.404%,
+    rgb(38 38 38 / 80%) 93.007%
+  );
 }
 
 .herosection__image img {
-  margin-top: 0;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
 }
 
 .herosection__body {
-  grid-column: 1;
-  grid-row: 1;
-  padding: 2rem;
-  color: white;
+  position: absolute;
+  inset-inline-start: clamp(1rem, 4vw, 3.5rem);
+  inset-block-end: clamp(1rem, 6.5vw, 3.25rem);
   z-index: 1;
-  text-align: center;
+  max-width: min(90%, 540px);
 }
 
-.herosection h1 {
-  font-size: 37px;
-  line-height: 1.18;
-  font-weight: 100;
-  margin-block: 0;
+.herosection__body h1 {
+  margin: 0;
+  color: var(--background-color);
+  font-size: clamp(2rem, 3vw, 2.625rem);
+  line-height: 1.067;
+  font-weight: 400;
 }
 
-.herosection h1 + p {
-  font-weight: bold;
-  font-size: 84px;
-  line-height: 1.1;
-  margin-top: 30px;
-  margin-bottom: 0;
+.herosection__body p {
+  margin: 0;
+  color: var(--background-color);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.333;
+  font-weight: 300;
 }
 
-.herosection.herosection a {
-  margin-top: 50px;
-  margin-left: 0;
+.herosection .herosection__cta.button {
+  margin: 1rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  padding: 1rem;
+  border: 0;
+  border-radius: 0;
+  background: #1b69d4;
+  color: var(--background-color);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4286;
+  text-decoration: none;
 }
 
-.herosection .icon-arrow-right::after {
-  rotate: 90deg;
+.herosection .herosection__cta.button:hover,
+.herosection .herosection__cta.button:focus-visible {
+  background: #134f9f;
 }
 
-.hero .button::after{
-    transform: rotate(90deg);
+.herosection .herosection__cta.button.icon-download::after {
+  content: '';
+  background: url('/icons/download.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin: 0;
 }
 
-@media screen and (width >= 768px) {
+@media (width <= 767px) {
   .herosection {
-    --bg-threshold: 22%;
-    --heading-font-size: 24px;
-    --headline-font-size: 48px;
-    --offset-image: 0%;
-    --scale-image: 1;
-
-    grid-template-rows: 0.6fr 1fr;
-  }
-}
-
-@media screen and (width >= 1024px) {
-  .herosection {
-    --bg-threshold: 22%;
-    --heading-font-size: 28px;
-    --headline-font-size: 64px;
-    --offset-image: 3%;
-    --scale-image: 1.4;
-
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    grid-template-rows: 1fr .28fr;
-    background-image: linear-gradient(white, white),
-      url('https://agentic.innovationlab.cx/img/hero-bg-default.jpg');
-    background-size: 100% var(--bg-threshold),
-      cover;
-    background-repeat: no-repeat;
-    background-position: left bottom,
-      center;
-    box-shadow: inset 0 -1px 0 0 white;
-
-    &.enthusiastic {
-      background-image: linear-gradient(white, white),
-      url('https://agentic.innovationlab.cx/img/hero-bg-enthusiastic.jpg');
-    }
-
-    &.formal {
-      background-image: linear-gradient(white, white),
-      url('https://agentic.innovationlab.cx/img/hero-bg-formal.jpg');
-    }
+    aspect-ratio: 16 / 9;
+    min-height: 240px;
   }
 
   .herosection__body {
-    grid-column: 2;
-    text-align: left;
-  }
-
-  .herosection__image {
-    position: relative;
-    grid-column: 1;
-    grid-row: 1/-1;
-    place-content: end;
-  }
-
-  .herosection__image img {
-    scale: var(--scale-image);
-    position: absolute;
-    bottom: var(--offset-image);
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .herosection {
-    --heading-font-size: 37px;
-    --headline-font-size: 84px;
+    inset-inline-start: 1rem;
+    inset-inline-end: 1rem;
+    inset-block-end: 1rem;
+    max-width: none;
   }
 }

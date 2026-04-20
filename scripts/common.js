@@ -27,7 +27,7 @@ function addPageHeader() {
           <img src="/icons/wordmark-cognizant.svg" alt="" />
         </a>
         <div>
-          <span class="font-gellix font-semibold leading-5">
+          <span class="font-BMWTypeNextProTT font-semibold leading-5">
             Solari Astrocraft
           </span>
         </div>
