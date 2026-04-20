@@ -1,47 +1,56 @@
 indices:
   products:
-    target: /query-products-test.json
+    target: /query-products.json
     include:
       - '/products/**'
     properties:
       name:
         select: head > meta[property="og:title"]
         value: attribute(el, "content")
-      recommended_dosage:
-        select: main ul > li:first-child
-        value: textContent(el)
-      ingredients_names:
+      brand:
+        select: head > meta[property="brand"]
+        value: attribute(el, "content")
+      badge:
+        select: head > meta[property="badge"]
+        value: attribute(el, "content")
+      characteristics:
+        select: .characteristics > div > div:last-child
+        values: textContent(el)
+      specifications_variables:
         select: .specifications > div > div:first-child
         values: textContent(el)
-      ingredients_amounts:
+      specifications_values:
         select: .specifications > div > div:last-child
         values: textContent(el)
       image: 
         select: head > meta[property="og:image"]
         value: attribute(el, "content")
-      properties: 
-        select: .features > div > div:last-child
-        values: textContent(el)
-      brand: 
-        select: head > meta[name="brand"]
-        value: attribute(el, "content")
-      special_needs: 
-        select: head > meta[name="special-needs"]
-        value: attribute(el, "content")
-      purpose: 
-        select: head > meta[name="purpose"]
-        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
   segments:
-    target: /query-segments-test.json
+    target: /query-segments.json
     include:
       - '/segments/**'
     properties:
       name:
         select: head > meta[property="og:title"]
         value: attribute(el, "content")
+      age:
+        select: head > meta[property="age"]
+        value: attribute(el, "content")
+      property:
+        select: "#property + ul > li"
+        value: textContent(el)
+      technology:
+        select: "#technology--channel-preferences + ul > li"
+        value: textContent(el)
+      education:
+        select: "#highest-education-work--finances + ul > li"
+        value: textContent(el)
+      transport:
+        select: "#transport--automotive + ul > li"
+        value: textContent(el)
       description:
         select: head > meta[property="og:description"]
         value: attribute(el, "content")
@@ -52,7 +61,7 @@ indices:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
   regions:
-    target: /query-regions-test.json
+    target: /query-regions.json
     include:
       - '/regions/**'
     properties:
@@ -62,9 +71,9 @@ indices:
       image: 
         select: head > meta[property="og:image"]
         value: attribute(el, "content")
-      specs: 
-        select: h1 ~ p
-        values: innerHTML(el)
+      badge:
+        select: head > meta[property="badge"]
+        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
