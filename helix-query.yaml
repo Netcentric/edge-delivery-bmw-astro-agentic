@@ -44,16 +44,16 @@ indices:
         value: textContent(el)
       property:
         select: "#property + ul > li"
-        value: textContent(el)
+        values: textContent(el)
       technology:
         select: "#technology--channel-preferences + ul > li"
-        value: textContent(el)
+        values: textContent(el)
       education:
         select: "#highest-education-work--finances + ul > li"
-        value: textContent(el)
+        values: textContent(el)
       transport:
         select: "#transport--automotive + ul > li"
-        value: textContent(el)
+        values: textContent(el)
       description:
         select: head > meta[property="og:description"]
         value: attribute(el, "content")
