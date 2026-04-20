@@ -113,7 +113,7 @@ function addNarrowScreenDisclaimer() {
   disclaimer.classList.add('narrow-screen-disclaimer');
 
   disclaimer.innerHTML = `
-    <img src="https://agentic.innovationlab.cx/app/cognizant-moment-logo-BAdMWeoY.svg" alt="cognizant moment logo">
+    <img src="https://cdn.jsdelivr.net/gh/netcentric/edge-delivery-bmw-astro-agentic@main/app/assets/cognizant-moment-logo-BAdMWeoY.svg" alt="cognizant moment logo">
     <h1>AstroPure Agentic Force</h1>
     <h2>Screen too small</h2>
     <div class="icon">

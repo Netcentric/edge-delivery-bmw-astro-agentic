@@ -142,31 +142,27 @@ a.button:any-link, button {
   font-family: var(--body-font-family);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
+  padding: 16px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  color: #000048;
-  background-color: #11C7CC;
-  margin: 16px;
+  color: #fff;
+  background-color: #1B69D4;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
 }
 
 a.button::after, button::after {
     content: '';
-    background: url('../../icons/arrow.svg');
+    background: url('../../icons/download.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     display: inline-block;
 }
 

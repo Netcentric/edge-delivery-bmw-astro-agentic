@@ -1,0 +1,34 @@
+.assets__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 100px;
+}
+
+.assets__column--text {
+    align-content: center;
+
+    color: #262626;
+    font-family: "BMWTypeNext Pro TT";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+    h2 {
+        font-family: "BMWTypeNext Pro TT";
+        font-size: 42px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+    }
+}
+
+.assets__content > .assets__row:first-of-type .assets__column--text {
+    align-content: start;
+    padding-block: 60px;
+}
+
+* + .assets__buttons {
+    margin-block-start: 32px;
+}
