@@ -1,6 +1,6 @@
 indices:
   products:
-    target: /query-products.json
+    target: /query-products-test.json
     include:
       - '/products/**'
     properties:
@@ -35,7 +35,7 @@ indices:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
   segments:
-    target: /query-segments.json
+    target: /query-segments-test.json
     include:
       - '/segments/**'
     properties:
@@ -52,7 +52,7 @@ indices:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
   regions:
-    target: /query-regions.json
+    target: /query-regions-test.json
     include:
       - '/regions/**'
     properties:
