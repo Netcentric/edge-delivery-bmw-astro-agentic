@@ -13,6 +13,9 @@ indices:
       label:
         select: head > meta[name="badge"]
         value: attribute(el, "content")
+      features:
+        select: "#features + ul > li"
+        values: textContent(el)
       characteristics:
         select: .characteristics > div > div:last-child
         values: textContent(el)
