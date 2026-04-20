@@ -37,11 +37,11 @@ indices:
         select: head > meta[property="og:title"]
         value: attribute(el, "content")
       age:
-        select: head > meta[property="age"]
-        value: attribute(el, "content")
+        select: h1 > p
+        value: textContent(el)
       label:
-        select: head > meta[property="age"]
-        value: attribute(el, "content")
+        select: h1 > p
+        value: textContent(el)
       property:
         select: "#property + ul > li"
         value: textContent(el)
