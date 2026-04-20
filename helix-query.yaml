@@ -8,10 +8,10 @@ indices:
         select: head > meta[property="og:title"]
         value: attribute(el, "content")
       brand:
-        select: head > meta[property="brand"]
+        select: head > meta[name="brand"]
         value: attribute(el, "content")
       label:
-        select: head > meta[property="badge"]
+        select: head > meta[name="badge"]
         value: attribute(el, "content")
       characteristics:
         select: .characteristics > div > div:last-child
@@ -75,7 +75,7 @@ indices:
         select: head > meta[property="og:image"]
         value: attribute(el, "content")
       label:
-        select: head > meta[property="badge"]
+        select: head > meta[name="badge"]
         value: attribute(el, "content")
       postalcodes:
         select: "#postal-codes + ul > li"
