@@ -28,6 +28,9 @@ indices:
       image: 
         select: head > meta[property="og:image"]
         value: attribute(el, "content")
+      assets_zip: 
+        select: head > meta[name="assets_zip"]
+        value: attribute(el, "content")
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
