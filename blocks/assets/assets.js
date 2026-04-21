@@ -27,6 +27,7 @@ export default function decorate(block) {
       buttonLink.classList.add('button');
       buttonLink.classList.add('icon--download');
       buttonLink.setAttribute('download', '');
+      buttonLink.setAttribute('target', '_blank');
       columns[2].classList.add('assets__buttons');
       if (imageLeft) {
         columns[1].append(columns[2]);

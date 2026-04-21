@@ -13,6 +13,8 @@ export default function decorate(block) {
 
   let buttonHtml = '';
   if (button) {
+    button.setAttribute('download', '');
+    button.setAttribute('target', '_blank');
     button.className = 'button herosection__cta icon-download';
     buttonHtml = button.outerHTML;
   } else if (buttonCell?.textContent?.trim()) {
