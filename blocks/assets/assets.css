@@ -24,6 +24,10 @@
         font-weight: 300;
         line-height: normal;
     }
+
+    a {
+        font-size: 0.875rem;
+    }
 }
 
 .assets__content > .assets__row:first-of-type .assets__column--text {
