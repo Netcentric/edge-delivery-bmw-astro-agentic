@@ -5,6 +5,7 @@ main .herosection-container {
 
 main .herosection-container > div {
   max-width: unset;
+  margin-bottom: 50px;
 }
 
 .herosection {
