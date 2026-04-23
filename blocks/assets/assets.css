@@ -28,6 +28,10 @@
     a {
         font-size: 0.875rem;
     }
+
+    strong {
+        font-weight: unset;
+    }
 }
 
 .assets__content > .assets__row:first-of-type .assets__column--text {
